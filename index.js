@@ -59,9 +59,6 @@ let posts = [
     }
 ]
 
-app.get("/",(req, res)=>{
-    res.send("Serving working well");
-});
 
 app.get("/posts",(req, res)=>{
     res.render("index.ejs",{ posts });
