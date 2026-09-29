@@ -1,0 +1,34 @@
+h4 {
+    color: brown;
+}
+
+
+.profile {
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.main {
+    padding: 50px;
+    margin-left:300px;
+}
+
+.content {
+    display: flex;
+    /* flex-direction: row; */
+    margin: 10px;
+}
+
+.cont {
+    padding-left: 10px;
+}
+.container{
+    margin-top: 40px;
+    /* display: grid;
+    grid-template-columns: repeat(3, 1fr); */
+    /* text-align: center; */
+}
+
+h2 {
+    color: blue;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+</head>
+<body>
+    <form method="POST" action="/newPeople" enctype="multipart/form-data">
+
+        <input type="file" name="avatar" accept="image/*" required />
+        <br><br>
+        <input placeholder="username" name="username">
+        <br><br>
+        <input placeholder="name" name="name">
+        <br><br>
+        <input placeholder="postsCount" name="postsCount">
+        <br><br>
+        <input placeholder="followers" name="followers">
+        <br><br>
+        <input placeholder="following" name="following">
+        <br><br>
+        <textarea placeholder="content" name="content"></textarea>
+        <br><br>
+        <button type="submit">Submit</button>
+        
+    </form>
+</body>
+</html>

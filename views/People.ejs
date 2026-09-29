@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>People</title>
+    <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+    <div class="container">
+    <h6>Suggested</h6>
+    <% for(post of posts) { %>
+        <div>
+        <p class="my-0"><%= post.username %></p>
+        <p class="my-0 d-inline-flex ">@<%= post.name %></p>
+        <form method="GET" action="/posts">
+            <!-- <button type="submit" class="btn btn-primary btn-sm mx-5" style="--bs-btn-padding-y: .16rem; --bs-btn-padding-x: .4rem; --bs-btn-font-size: .65rem;">See more</button> -->
+            <a href="/posts/<%= post.id %>">See more</a>
+        </form>
+        <br><br>
+        </div>
+    <%}%>
+    <br><br>
+    <form method="GET" action="/people/new">
+    <button type="submit" class="btn btn-primary btn-sm" style="--bs-btn-padding-y: .12rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .80rem;">Add New</button>
+    </form>
+    </div>
+</body>
+</html>
