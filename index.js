@@ -8,7 +8,7 @@ const methodOverride = require('method-override'); //method-override
 
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 
 app.set("view engine","ejs");
@@ -17,11 +17,10 @@ app.use(express.static(path.join(__dirname,"public")));
 app.use(methodOverride('_method'))
 
 
-
 app.use(express.urlencoded({extended : true}));//middleware 
 
 app.listen(port,() => {
-    console.log("listening on port 3000");
+    console.log(`listening on port ${port}`);
 });
 
 const storage = multer.diskStorage({
@@ -59,6 +58,10 @@ let posts = [
     }
 ]
 
+app.get("/", (req, res) => {
+    res.redirect("/people");
+});
+
 app.get("/posts",(req, res)=>{
     res.render("index.ejs",{ posts });
 });
@@ -81,7 +84,10 @@ app.get("/people/new",(req, res)=>{
 app.get("/posts/:id/edit",(req, res) => {
     let {id} = req.params;
     let post = posts.find((p) => id === p.id); 
-    res.render("edit.ejs", { posts });
+    if (!post) {
+        return res.sendStatus(404);
+    }
+    res.render("edit.ejs", { post });
 });
 
 app.delete("/posts/:id/",(req, res) => {
@@ -115,7 +121,6 @@ app.post("/newPeople", upload.single("avatar"),(req, res)=>{
     console.log(req.file);
     return res.redirect("/people");
 });
-
 
 
 

@@ -22,7 +22,7 @@
             </div>
         </div>
         <p> <%= post.content %> </p>
-        <a href="http://localhost:3000/posts/<%= post.id %>/edit">Edit content</a>
+        <a href="/posts/<%= post.id %>/edit">Edit content</a>
         <br><br>
         <form method="post" action="/posts/<%=post.id%>?_method=DELETE">
             <button type="submit">Delete</button>
